@@ -1,0 +1,17 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="WebArtProject:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/WebArtProject_war_exploded</output-path>
+    <root id="root">
+      <element id="javaee-facet-resources" facet="WebArtProject/web/Web" />
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="WebArtProject" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="postgresql-9.4.1210.jre6" />
+          <element id="library" level="project" name="freemarker" />
+        </element>
+      </element>
+    </root>
+  </artifact>
+</component>

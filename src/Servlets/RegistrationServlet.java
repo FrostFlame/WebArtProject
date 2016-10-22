@@ -6,12 +6,7 @@ import freemarker.template.Configuration;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
-import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.Cookie;
-import javax.servlet.http.HttpServlet;
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -20,22 +15,25 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by 1 on 19.10.2016.
+ * Created by 1 on 22.10.2016.
  */
-@WebServlet(name = "RegistrationServlet")
-public class RegistrationServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+@javax.servlet.annotation.WebServlet(name = "Servlets.RegistrationServlet")
+public class RegistrationServlet extends javax.servlet.http.HttpServlet {
+    protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         try {
             Statement st = ConnectionSingleton.getConnection().createStatement();
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String repeatpassword = request.getParameter("repeat-password");
 
-            ResultSet rs = st.executeQuery("select * from users where username like '" + username + "'");
+            ResultSet rs = st.executeQuery("select * from users where username = '" + username + "'");
 
             if (rs.next()) {
-                response.sendRedirect("/login?err=Login already exists&log=" + username);
+                response.sendRedirect("/registration?err=Username already taken&log=" + username);
+            } else if (!password.equals(repeatpassword)) {
+                response.sendRedirect("/registration?err=Wrong password&log=" + username);
             } else {
-                st.executeUpdate("insert into users(username, password)values ('" + username + "', '" + password + "');");
+                st.executeUpdate("insert into users(username, password)values('" + username + "', '" + password + "');");
                 request.getSession().setAttribute("current_user", username);
                 Cookie cookie = new Cookie("username", username);
                 cookie.setMaxAge(365 * 24 * 60 * 60);
@@ -47,9 +45,9 @@ public class RegistrationServlet extends HttpServlet {
         }
     }
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         Configuration cfg = ConfigSingleton.getConfig(request.getServletContext());
-        Template tmpl = cfg.getTemplate("registration.html");
+        Template tmpl = cfg.getTemplate("registration.ftl");
         String log = "";
         if (request.getParameter("log") != null)
             log = request.getParameter("log");

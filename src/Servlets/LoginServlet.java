@@ -8,23 +8,22 @@ import freemarker.template.TemplateException;
 
 import javax.servlet.http.Cookie;
 import java.io.IOException;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by 1 on 19.10.2016.
+ * Created by 1 on 28.09.2016.
  */
 public class LoginServlet extends javax.servlet.http.HttpServlet {
+
     protected void doPost(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         try {
             Statement st = ConnectionSingleton.getConnection().createStatement();
             String username = request.getParameter("username");
             String password = request.getParameter("password");
 
-            ResultSet rs = st.executeQuery("select * from users where username like '" + username + "'");
+            ResultSet rs = st.executeQuery("select * from users where username = '" + username + "'");
 
             if (rs.next()) {
                 if (rs.getString("username").equals(username)) {
@@ -48,7 +47,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         Configuration cfg = ConfigSingleton.getConfig(request.getServletContext());
-        Template tmpl = cfg.getTemplate("login.html");
+        Template tmpl = cfg.getTemplate("login.ftl");
         String log = "";
         if (request.getParameter("log") != null)
             log = request.getParameter("log");
