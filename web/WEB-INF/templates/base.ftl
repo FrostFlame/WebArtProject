@@ -44,7 +44,7 @@
         <div class="content panel panel-default col-md-9">
             <!-- content -->
             <div class="page-heading">
-                <h1>Hello world! <small>Small subheader</small></h1>
+                <h1>Hello ${username}! <small>Small subheader</small></h1>
             </div>
             <p>Lorem ipsum</p>
             <!-- /content -->

@@ -37,18 +37,18 @@
                 <div class="form-group">
                   <div class="col-sm-2"><label for="username">Username</label></div>
                    <div class="col-sm-10">
-                       <input type="text" class="form-control" name="username">
+                       <input type="text" class="form-control" name="username" value=${log}>
                    </div>
                 </div>
                 <div class="form-group">
                   <div class="col-sm-2"><label for="password">Password</label></div>
                    <div class="col-sm-10">
-                       <input type="password" class="form-control" name="pssword">
+                       <input type="password" class="form-control" name="password">
                    </div>
                 </div><div class="form-group">
                   <div class="col-sm-2"><label for="password">Repeat password</label></div>
                    <div class="col-sm-10">
-                       <input type="password" class="form-control" name="repeat-pssword">
+                       <input type="password" class="form-control" name="repeat-password">
                    </div>
                 </div>
                   <div class="form-group">

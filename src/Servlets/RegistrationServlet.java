@@ -29,18 +29,24 @@ public class RegistrationServlet extends HttpServlet {
             Statement st = ConnectionSingleton.getConnection().createStatement();
             String username = request.getParameter("username");
             String password = request.getParameter("password");
+            String repeatpassword = request.getParameter("repeat-password");
 
-            ResultSet rs = st.executeQuery("select * from users where username like '" + username + "'");
+            ResultSet rs = st.executeQuery("select * from users where username = '" + username + "'");
 
             if (rs.next()) {
-                response.sendRedirect("/login?err=Login already exists&log=" + username);
+                response.sendRedirect("/registration?err=username already taken&log=" + username);
             } else {
-                st.executeUpdate("insert into users(username, password)values ('" + username + "', '" + password + "');");
-                request.getSession().setAttribute("current_user", username);
-                Cookie cookie = new Cookie("username", username);
-                cookie.setMaxAge(365 * 24 * 60 * 60);
-                response.addCookie(cookie);
-                response.sendRedirect("/private");
+                if(password.equals(repeatpassword)) {
+                    st.executeUpdate("insert into users(username, password)values ('" + username + "', '" + password + "');");
+                    request.getSession().setAttribute("current_user", username);
+                    Cookie cookie = new Cookie("username", username);
+                    cookie.setMaxAge(365 * 24 * 60 * 60);
+                    response.addCookie(cookie);
+                    response.sendRedirect("/private");
+                }
+                else{
+                    response.sendRedirect("/registration?err=wrong password&log=" + username);
+                }
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -49,7 +55,7 @@ public class RegistrationServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Configuration cfg = ConfigSingleton.getConfig(request.getServletContext());
-        Template tmpl = cfg.getTemplate("registration.html");
+        Template tmpl = cfg.getTemplate("registration.ftl");
         String log = "";
         if (request.getParameter("log") != null)
             log = request.getParameter("log");
