@@ -48,7 +48,7 @@ public class LoginServlet extends javax.servlet.http.HttpServlet {
 
     protected void doGet(javax.servlet.http.HttpServletRequest request, javax.servlet.http.HttpServletResponse response) throws javax.servlet.ServletException, IOException {
         Configuration cfg = ConfigSingleton.getConfig(request.getServletContext());
-        Template tmpl = cfg.getTemplate("login.ftl");
+        Template tmpl = cfg.getTemplate("login.html");
         String log = "";
         if (request.getParameter("log") != null)
             log = request.getParameter("log");
