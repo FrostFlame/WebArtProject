@@ -1,0 +1,99 @@
+            <!-- content -->
+                    <ul class="nav nav-pills">
+                    <li role="presentation" class="active"><a href="#settings" data-toggle="tab">Settings</a></li>
+                    <li role="presentation"><a href="#blacklist" data-toggle="tab">Black list</a></li>
+                </ul>
+                
+              <div class="tab-content">
+                <div role="tabpanel" class="tab-pane active" id="settings">
+                    <div>
+                        <form action="/settings" method="post" class="form-horizontal">
+                          <h3>Basic Settings</h3>
+                           <div class="form-group">
+                               <label for="name" class="col-xs-3">Name</label>
+                               <div class="col-xs-9"><input type="text" class="form-control" name="name" id="name" value="User Name"></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="password_current" class="col-xs-3">Current password</label>
+                               <div class="col-xs-9"><input type="password" class="form-control" name="password_current"></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="password_new1" class="col-xs-3">New password</label>
+                               <div class="col-xs-9"><input type="password" class="form-control" name="password_new1"></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="password_new2" class="col-xs-3">Repeat new password</label>
+                               <div class="col-xs-9"><input type="text" class="form-control"></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="disable_notifications" class="col-xs-3">Disable notifications</label>
+                               <div class="col-xs-9"><input type="checkbox" class="input-lg" name="disable_notifications" checked="false"></div>
+                           </div>
+                           
+                           <h3>Privacy settings</h3>
+                           
+                           <div class="form-group">
+                               <label for="add_friends" class="col-xs-4">Кто может <strong>добавлять вас в друзья</strong></label>
+                               <div class="col-xs-8">
+                                  <select name="add_friends" id="" class="form-control">
+                                   <option value="">Все</option>
+                                   <option value="">Друзья и друзья друзей</option>
+                                   <option value="">Друзья</option>
+                                   <option value="">Никто</option>
+                                   </select></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="watch_pics" class="col-xs-4">Кто может <strong>смотреть ваши работы</strong></label>
+                               <div class="col-xs-8"><select name="watch_pics" id="" class="form-control">
+                                   <option value="">Все</option>
+                                   <option value="">Друзья и друзья друзей</option>
+                                   <option value="">Друзья</option>
+                                   <option value="">Никто</option>
+                                   </select></div>
+                           </div>
+                           <div class="form-group">
+                               <label for="send_messages" class="col-xs-4">Кто может <strong>писать вам сообщения</strong></label>
+                               <div class="col-xs-8"><select name="send_messages" id="" class="form-control">
+                                   <option value="">Все</option>
+                                   <option value="">Друзья и друзья друзей</option>
+                                   <option value="">Друзья</option>
+                                   <option value="">Никто</option>
+                                   </select></div>
+                           </div>
+                           <input class="btn btn-primary btn-lg" type="submit" value="Сохранить настройки">
+                        </form>
+                    </div>
+                </div>
+                <div role="tabpanel" class="tab-pane" id="blacklist" >
+                <h3>Black list</h3>
+                <p>
+                    Blacklisted users cannot write you messages or view your profile.
+                </p>
+                <ul id="blacklist-ul" class="media-list">
+                    <li class="media"><a href="">
+                            <div class="col-xs-2"><img src="img/avatar1.jpg" alt="" class="img-responsive"></div>
+                            <div class="col-xs-10">
+                                <h4 class="media-heading">Katya Svintenok</h4>
+                                <button class="btn btn-primary bl-remove">Удалить из ЧС</button>
+                            </div>
+                        </a></li>
+                    <li class="media"><a href="">
+                            <div class="col-xs-2"><img src="img/avatar2.jpg" alt="" class="img-responsive"></div>
+                            <div class="col-xs-10">
+                                <h4>Damir Malikov</h4>
+                                <button class="btn btn-primary bl-remove">Удалить из ЧС</button>
+
+                            </div>
+                        </a></li>
+                    <li class="media"><a href="">
+                            <div class="col-xs-2"><img src="img/avatar3.jpg" alt="" class="img-responsive"></div>
+                            <div class="col-xs-10">
+                                <h4>Sagit Khaliullin</h4>
+                                <button class="btn btn-primary bl-remove">Удалить из ЧС</button>
+
+                            </div>
+                        </a></li>
+                </ul>
+                </div>
+              </div>
+            <!-- /content -->

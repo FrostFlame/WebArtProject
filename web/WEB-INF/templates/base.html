@@ -6,12 +6,13 @@
         <link rel="stylesheet" href="css/bootstrap.css">
         <link rel="stylesheet" href="css/bootstrap-theme-spacelab.min.css">
         <script type="application/javascript" src="js/bootstrap.js"></script>
+        <script type="application/javascript" src="js/common.js"></script>
     </head>
     
     <body>
        <!-- header -->
-        <nav class="navbar navbar-inverse">
-            <div class="container-fluid">
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
                 <a href="/" class="navbar-brand">Site</a>
                 <form class="navbar-form navbar-left" method="get" action="/search">
                 <div class="form-group">
@@ -19,15 +20,16 @@
                 </div>
                 </form>
                 
-                <!--  ul For logged in -->
+                <!--  For logged in -->
                 <ul class="nav navbar-nav navbar-right">
-                    <li><button class="btn btn-default navbar-btn">Settings</button></li>
-                    <li><button class="btn btn-default navbar-btn">Logout</button></li>
+                    <li><a href="/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                    <li><a href="/logout">Logout</a></li>
                 </ul>
+                <!--  / For logged in -->
             </div>
         </nav>
         <!-- /header -->
-        <div class="content clearfix container-fluid">
+        <div class="content clearfix container">
         
         <div class="row">
 
