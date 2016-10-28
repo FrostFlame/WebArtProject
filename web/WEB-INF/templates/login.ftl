@@ -30,6 +30,11 @@
             <div class="page-heading">
                 <h1>Login</h1>
             </div>
+        <#if err?has_content>
+            <div class="alert alert-danger" role="alert">
+                <strong>Error: </strong>${err}
+            </div>
+        </#if>
             <form method="post" action="/login" class="form-horizontal">
                 <div class="form-group">
                   <div class="col-sm-2"><label for="username">Username</label></div>

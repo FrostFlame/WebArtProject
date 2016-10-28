@@ -34,15 +34,25 @@
         <url-pattern>/logout</url-pattern>
     </servlet-mapping>
 
-    <!--<filter>-->
-        <!--<filter-name>LoginCookieFilter</filter-name>-->
-        <!--<filter-class>Filters.LoginCookieFilter</filter-class>-->
-    <!--</filter>-->
+    <servlet>
+        <servlet-name>PrivateServlet</servlet-name>
+        <servlet-class>Servlets.PrivateServlet</servlet-class>
+    </servlet>
 
-    <!--<filter-mapping>-->
-        <!--<filter-name>LoginCookieFilter</filter-name>-->
-        <!---->
-    <!--</filter-mapping>-->
+    <servlet-mapping>
+        <servlet-name>PrivateServlet</servlet-name>
+        <url-pattern>/private</url-pattern>
+    </servlet-mapping>
+
+    <filter>
+        <filter-name>LoginCookieFilter</filter-name>
+        <filter-class>Filters.LoginCookieFilter</filter-class>
+    </filter>
+
+    <filter-mapping>
+        <filter-name>LoginCookieFilter</filter-name>
+        <servlet-name>PrivateServlet</servlet-name>
+    </filter-mapping>
 
     <filter>
         <filter-name>UnLoginCookieFilter</filter-name>
@@ -66,12 +76,13 @@
         <servlet-name>RegistrationServlet</servlet-name>
     </filter-mapping>
 
-    <!--<filter>-->
-        <!--<filter-name>LoginFilter</filter-name>-->
-        <!--<filter-class>Filters.LoginFilter</filter-class>-->
-    <!--</filter>-->
+    <filter>
+        <filter-name>LoginFilter</filter-name>
+        <filter-class>Filters.LoginFilter</filter-class>
+    </filter>
 
-    <!--<filter-mapping>-->
-        <!--<filter-name>LoginFilter</filter-name>-->
-    <!--</filter-mapping>-->
+    <filter-mapping>
+        <filter-name>LoginFilter</filter-name>
+        <servlet-name>PrivateServlet</servlet-name>
+    </filter-mapping>
 </web-app>
