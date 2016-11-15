@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="application/javascript" src="js/jquery-3.1.1.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-theme-spacelab.min.css">
+        <script type="application/javascript" src="js/bootstrap.js"></script>
+        <script type="application/javascript" src="js/common.js"></script>
+    </head>
+    
+    <body>
+       <!-- header -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">Site</a>
+                <form class="navbar-form navbar-left" method="get" action="/search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                </form>
+                
+                <!--  For logged in -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                <!--  / For logged in -->
+            </div>
+        </nav>
+        <!-- /header -->
+        <div class="content clearfix container">
+        
+        <div class="row">
+
+        <!-- menu -->
+        <div class="sidebar list-group col-md-3">
+                <a class="list-group-item" href="/me">Me</a>
+                <a class="list-group-item" href="/feed">Feed</a>
+                <a class="list-group-item" href="/notifications">Notifications<span class="badge">15</span></a>
+                <a href="/im" class="list-group-item">Messages<span class="badge">15</span></a>
+                <a href="/friends" class="list-group-item active">Friends<span class="badge">3</span></a>
+                <a href="/battles" class="list-group-item">Challenges<span class="badge">3</span></a>
+        </div>
+        <!-- /menu -->
+        
+        <div class="content panel panel-default col-md-9">
+            <!-- content -->
+            <div class="col-md-12">
+                <a href="#profile" class="btn btn-primary"><span class="glyphicon glyphicon-arrow-left"></span> Back to profile</a>
+            </div>
+            
+            <ul class="nav nav-tabs">
+                <li role="presentation" class="active"><a href="#friends" data-toggle="tab">Friends</a></li>
+                <li role="presentation"><a href="#subscribers" data-toggle="tab">Subscribers</a></li>
+                <!-- if owner -->
+                <li role="presentation"><a href="#requests" data-toggle="tab">Requests</a></li>
+                <!-- /if -->
+            </ul>  
+            
+            <div class="tab-content">
+                <div class="tab-pane active" role="tabpanel" id="friends">
+                    <div class="media friend">
+                        <div class="media-left"><a href="#profile1">
+                        <img src="http://lorempixel.com/64/64/?1" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile1"><span>John Doe</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </div>
+
+                    <div class="media friend">
+                        <div class="media-left"><a href="#profile2">
+                        <img src="http://lorempixel.com/64/64/?2" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile2"><span>Ivan Ivanov</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </div>
+
+                    <div class="media friend">
+                        <div class="media-left"><a href="#profile3">
+                        <img src="http://lorempixel.com/64/64/?3" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile3"><span>Max Petrov</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="tab-pane" role="tabpanel" id="subscribers">
+                   <ul class="media-list">
+                    <li class="media subscriber">
+                        <div class="media-left"><a href="#profile4">
+                        <img src="http://lorempixel.com/64/64/?4" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile1"><span>Alice Pen</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </li>
+
+                    <li class="media subscriber">
+                        <div class="media-left"><a href="#profile5">
+                        <img src="http://lorempixel.com/64/64/?5" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile2"><span>Bob Menace</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </li>
+
+                    <li class="media subscriber">
+                        <div class="media-left"><a href="#profile6">
+                        <img src="http://lorempixel.com/64/64/?6" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                            <h4>
+                            <a href="#profile3"><span>Mikhail Boyarsky</span></a>
+                             </h4>
+                             <!-- if owner -->
+                             <form method="post" action="#">
+                                 <input type="submit" value="Remove" class="btn btn-danger">
+                             </form>
+                             <!-- /if -->
+                        </div>
+                    </li>
+
+                   </ul>
+                </div>
+                
+                <!-- if owner -->
+                <div class="tab-pane" role="tabpanel" id="requests">
+                    <div class="media request">
+                        <div class="media-left"><a href="#profile7">
+                        <img src="http://lorempixel.com/64/64/?7" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                           <div class="col-md-9">
+                            <h4>
+                            <a href="#profile1"><span>Mickey Mouse</span></a>
+                             </h4>
+                                 <p>Donec et nunc id risus ultricies aliquet.</p>
+                           </div>
+                             <div class="col-md-3">
+                                <button class="btn btn-success btn-block to-friends">To friends</button> 
+                                <button class="btn btn-default btn-block to-subscribers">To subscribers</button>
+                             </div>
+                        </div>
+                    </div>
+                    
+                    <div class="media request">
+                        <div class="media-left"><a href="#profile8">
+                        <img src="http://lorempixel.com/64/64/?8" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                           <div class="col-md-9">
+                            <h4>
+                            <a href="#profile1"><span>Sam Marbles</span></a>
+                             </h4>
+                                 <p>Proin auctor orci sit amet urna euismod, tincidunt mattis justo fringilla.</p>
+                           </div>
+                             <div class="col-md-3">
+                                <button class="btn btn-success btn-block to-friends">To friends</button> 
+                                <button class="btn btn-default btn-block to-subscribers">To subscribers</button>
+                             </div>
+                        </div>
+                    </div>
+
+                    <div class="media request">
+                        <div class="media-left"><a href="#profile9">
+                        <img src="http://lorempixel.com/64/64/?9" alt="" class="media-object" width="64" height="64" ></a>
+                        </div>
+                        <div class="media-body">
+                           <div class="col-md-9">
+                            <h4>
+                            <a href="#profile1"><span>Andy Warholl</span></a>
+                             </h4>
+                                 <p>Suspendisse sed libero feugiat risus convallis fringilla nec sed urna.</p>
+                           </div>
+                             <div class="col-md-3">
+                                <button class="btn btn-success btn-block to-friends">To friends</button> 
+                                <button class="btn btn-default btn-block to-subscribers">To subscribers</button>
+                             </div>
+                        </div>
+                    </div>
+
+                </div>
+                <!-- /if -->
+                
+                </div>
+            </div>          
+            
+            <!-- /content -->
+        </div>
+        
+        <!-- footer -->
+        <div class="clearfix row">
+            <p class="text-muted">Copyright (c) 2016</p>
+        </div>
+        <!-- /footer -->
+
+        </div>
+    </body>
+    
+</html>

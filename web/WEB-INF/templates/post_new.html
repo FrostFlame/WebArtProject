@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <script type="application/javascript" src="js/jquery-3.1.1.js"></script>
+        <link rel="stylesheet" href="css/bootstrap.css">
+        <link rel="stylesheet" href="css/bootstrap-theme-spacelab.min.css">
+        <script type="application/javascript" src="js/bootstrap.js"></script>
+        <script type="application/javascript" src="js/common.js"></script>
+    </head>
+    
+    <body>
+       <!-- header -->
+        <nav class="navbar navbar-inverse navbar-static-top">
+            <div class="container">
+                <a href="/" class="navbar-brand">Site</a>
+                <form class="navbar-form navbar-left" method="get" action="/search">
+                <div class="form-group">
+                  <input type="text" class="form-control" placeholder="Search">
+                </div>
+                </form>
+                
+                <!--  For logged in -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="/settings"><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
+                    <li><a href="/logout">Logout</a></li>
+                </ul>
+                <!--  / For logged in -->
+            </div>
+        </nav>
+        <!-- /header -->
+        <div class="content clearfix container">
+        
+        <div class="row">
+
+        <!-- menu -->
+        <div class="sidebar list-group col-md-3">
+                <a class="list-group-item" href="/me">Me</a>
+                <a class="list-group-item" href="/feed">Feed</a>
+            <a class="list-group-item" href="/notifications">Notifications<span class="badge">15</span></a>
+                <a href="/im" class="list-group-item">Messages<span class="badge">15</span></a>
+                <a href="/friends" class="list-group-item">Friends<span class="badge">3</span></a>
+                <a href="/battles" class="list-group-item">Challenges<span class="badge">3</span></a>
+        </div>
+        <!-- /menu -->
+        <div class="content panel panel-default col-md-9">
+            <!-- content -->
+            <div class="page-heading">
+                <h1>New post</h1>
+            </div>
+            <div class="row">
+               <div class="col-sm-8">
+                <form action="/newpost" class="form-horizontal" method="post">
+                    <div class="form-group">
+                        <label for="post-title" class="col-sm-4 control-label">Title</label>
+                        <div class="col-sm-8"><input type="text" class="form-control" name="title" id="post-title"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-file" class="col-sm-4 control-label">File</label>
+                        <div class="col-sm-8"><input type="file" class="form-control" name="file" id="post-file"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="post-text" class="col-sm-4 control-label">Text</label>
+                        <div class="col-sm-8"><textarea type="text" class="form-control" name="text" id="post-text"></textarea></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="" class="col-sm-4 control-label">Tags</label>
+                        <div class="col-sm-8">
+                            <input type="text" class="form-control" placeholder="cats, funny">
+                            <span class="help-block">Provide one or more tags, separated by comma</span>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-sm-offset-4">                    
+                        <input type="submit" class="btn btn-primary" value="Post this">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            </div>
+            <!-- /content -->
+        </div>
+            </div>
+        
+        <!-- footer -->
+        <div class="clearfix row">
+            <p class="text-muted">Copyright (c) 2016</p>
+        </div>
+        <!-- /footer -->
+
+        </div>
+    </body>
+    
+</html>
