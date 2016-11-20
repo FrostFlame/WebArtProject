@@ -1,0 +1,7 @@
+@media (min-width: 992px) { 
+    #message-list {
+        position: relative;
+        max-height: 380px;
+        overflow-y: scroll;
+    }
+}
